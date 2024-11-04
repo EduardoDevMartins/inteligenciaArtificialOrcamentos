@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1>Detalhes do Orçamento</h1>
+    <form method="POST">
+        <label for="servico">Descreva o seu problema</label>
+        <input type="text" id="servico" name="servico" required>
+
+        <label for="caracteristica1">Qual o tipo do sifão? Ex: Plástico, cromado, copo, metal, cano PVC. </label>
+        <input type="text" id="caracteristica1" name="caracteristica1">
+
+        <label for="caracteristica2">Alguma outra caracteristica? Ex: Duplo, simples, rígido</label>
+        <input type="text" id="caracteristica2" name="caracteristica2">
+
+        <label for="caracteristica3">Local:</label>
+        <input type="text" id="caracteristica3" name="caracteristica3">
+
+        <button type="submit">Realizar Orçamento</button>
+    </form>
+
+    {% if preco_total %}
+    <div class="orcamento-detalhes">
+        <h2>Orçamento:</h2>
+        <p>Preço Total: R$ {{ preco_total }}</p>
+        <p>Mão de Obra: R$ {{ preco_mao_de_obra }}</p>
+        <p>Material: R$ {{ preco_material }}</p>
+        <p>Diagnóstico: {{ diagnostico }}</p>
+        <p>Solução: {{ solucao }}</p>
+    </div>
+
+    <form method="POST" action="/dados_pessoais" enctype="multipart/form-data">
+        <h3>Esse orçamento resolve seu problema?</h3>
+        <input type="radio" id="sim" name="resposta" value="sim">
+        <label for="sim">Sim</label><br>
+        <input type="radio" id="nao" name="resposta" value="nao">
+        <label for="nao">Não</label><br>
+        <input type="radio" id="duvida" name="resposta" value="duvida">
+        <label for="duvida">Estou em dúvida</label><br>
+
+        <h3>Dados Pessoais</h3>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required>
+
+        <label for="imobiliaria">Imobiliária:</label>
+        <input type="text" id="imobiliaria" name="imobiliaria">
+
+        <label for="tipo_usuario">Tipo de Usuário:</label>
+        <select id="tipo_usuario" name="tipo_usuario">
+            <option value="residencial">Inquilino</option>
+            <option value="comercial">Proprietário</option>
+        </select>
+
+        <label for="foto">Envie uma foto do problema:</label>
+        <input type="file" id="foto" name="foto" accept="image/*">
+
+        <button type="submit">Enviar</button>
+    </form>
+    {% endif %}
+
+    <footer>
+        <p>© 2024 Refera</p>
+    </footer>
+
+</body>
+</html>

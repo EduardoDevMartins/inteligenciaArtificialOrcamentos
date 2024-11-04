@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionar Categoria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Selecione o problema</h1>
+    <form method="POST" action="/">
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" name="categoria">
+            <option value="Hidraulica">Vazamento de água na pia</option>
+            <option value="Eletrica">Vazamento de água na torneira</option>
+            <option value="Outras">Vazamento de água no registro</option>
+        </select>
+        <button type="submit">Continuar</button>
+    </form>
+
+    <footer>
+        <p>© 2024 Refera</p>
+    </footer>
+</body>
+</html>
