@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selecionar Categoria</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Selecione o problema</h1>
-    <form method="POST" action="/">
-        <label for="categoria">Categoria:</label>
-        <select id="categoria" name="categoria">
-            <option value="Hidraulica">Vazamento de água na pia</option>
-            <option value="Eletrica">Vazamento de água na torneira</option>
-            <option value="Outras">Vazamento de água no registro</option>
-        </select>
-        <button type="submit">Continuar</button>
-    </form>
-
-    <footer>
-        <p>© 2024 Refera</p>
-    </footer>
+    <div class="container">
+        <h1>Selecionar Categoria de Serviço</h1>
+        <form method="POST">
+            <label for="categoria" class="form-label">Escolha uma categoria:</label>
+            <select name="categoria" id="categoria" class="form-select" required>
+                <option value="">Selecione...</option>
+                {% for categoria in categorias %}
+                    <option value="{{ categoria }}">{{ categoria.replace('_', ' ').capitalize() }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn-submit">Continuar</button>
+        </form>
+    </div>
 </body>
 </html>

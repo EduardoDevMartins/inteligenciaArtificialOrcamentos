@@ -109,3 +109,48 @@ form select {
     width: 100%;
     margin-bottom: 20px;
 }
+
+/* Estilos básicos para manter consistência com a aparência existente */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.perguntas-categoria {
+    margin-bottom: 20px;
+}
+
+.btn-submit {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.resultado-orcamento {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
